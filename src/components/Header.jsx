@@ -1,4 +1,4 @@
-import './Header.css';
+
 export const Header =({children,title,show}) => {
   return (
     <header className="header">

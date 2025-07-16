@@ -1,113 +1,98 @@
+/* === CONTENEDOR PRINCIPAL === */
 .section-container {
-    padding: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
-}
-section {
-    background-color: #000000;
-    border-radius: 12px;
-    padding: 8rem;
-    box-shadow: 0 8px 8px rgb(500, 0, 593);
-    margin-bottom: 2rem;
-    margin: 8rem auto;
+  padding: 2rem;
+  max-width: 1200px; /* Más ancho para 3 tarjetas por fila */
+  margin: 0 auto;
 }
 
+/* === SECCIÓN GENERAL === */
+section {
+  background-color: #000000;
+  border-radius: 12px;
+  padding: 3rem 2rem;
+  box-shadow: 0 8px 8px rgb(500, 0, 593);
+  margin: 4rem auto 2rem auto;
+}
+
+/* === TEXTOS Y TÍTULOS === */
 .section-title {
-    color: rgb(255, 251, 251);
-    background-color: #464646;
-    padding: 1rem;
-    text-align: center;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    font-size: 2rem;
-    transition: all 0.3s ease;
-    cursor: pointer;
+  color: rgb(63, 10, 10);
+  background-color: #464646;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .section-title:hover {
-    background-color: #ce96c7;
-    color: rgb(104, 95, 95);
+  background-color: #ce96c7;
+  color: rgb(104, 95, 95);
 }
 
 .section-subtitle {
-    color: rgb(105, 32, 32);
-    text-align: center;
-    font-size: 1.5rem;
+  color: rgb(105, 32, 32);
+  text-align: center;
+  font-size: 1.5rem;
 }
 
 .section-text-small {
-    color: rgb(133, 133, 133);
-    text-align: center;
-    font-size: 1rem;
-    margin-bottom: 1rem;
+  color: rgb(133, 133, 133);
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 1rem;
 }
 
 .section-text {
-    background-color: #ac78a9;
-    color: rgb(68, 1, 1);
-    padding: 1.5rem;
-    border-radius: 8px;
-    margin: 1rem 0;
-    line-height: 1.6;
+  background-color: #ac78a9;
+  color: rgb(68, 1, 1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+  line-height: 1.6;
 }
 
-.fruits-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 1rem 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding-left: 2rem;
-}
-
-.fruits-list li {
-    padding: 0.5rem 0;
-    color: #240101;
-    font-size: 1.2rem;
-    text-align: left;
-}
-
-.fruits-list img {
-    width: 50px;
-    height: 50px;
-    object-fit: contain;
-    margin-top: 10px;
-}
-
+/* === PIE DE PÁGINA === */
 .section-footer {
-    color: rgb(190, 87, 199);
-    background-color: #27031f;
-    padding: 1rem;
-    text-align: center;
-    border-radius: 8px;
-    margin-top: 1rem;
-    transition: all 0.3s ease;
-    cursor: pointer;
+  color: rgb(190, 87, 199);
+  background-color: #27031f;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 8px;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .section-footer:hover {
-    background-color: #685f62;
-    color: rgb(255, 123, 255);
+  background-color: #685f62;
+  color: rgb(255, 123, 255);
 }
 
-.cards-container {
+/* === CONTENEDOR DE TARJETAS === */
+.cards-container,
+.user-section {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   gap: 2rem;
-  justify-content: center;
+  margin-top: 2rem;
 }
 
+/* === TARJETAS === */
 .card {
-  background: #292929fd;
+  flex: 1 1 calc(33.333% - 2rem); /* 3 por fila con espacio */
+  max-width: 300px;
+  background: #f9f9f9;
+  border: 2px solid #ccc;
   border-radius: 16px;
-  box-shadow: 0 2px 16px rgb(207, 0, 211);
-  padding: 2rem 1.5rem 1.5rem 1.5rem;
-  width: 240px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgb(207, 0, 211);
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 5px solid #000000;
   transition: box-shadow 0.2s, border-color 0.2s;
 }
 
@@ -116,28 +101,34 @@ section {
   border-color: #ff00dd;
 }
 
+/* === IMAGEN DEL USUARIO === */
 .image {
-  width: 110px;
-  height: 110px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2px 8px #0002;
 }
 
+/* === TEXTOS EN TARJETA === */
 .name {
-  font-size: 1.3rem;
-  margin: 0.5rem 0 0.2rem 0;
-  color: #e4e4e4;
+  font-size: 1.2rem;
   font-weight: bold;
+  margin: 0.5rem 0;
+  color: #444;
   text-align: center;
 }
 
 .description {
   color: #ee03ee;
   font-size: 1rem;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
+/* === BOTÓN DE CONTACTAR === */
 button {
   background: #000000;
   color: #b4b4b4;
@@ -149,9 +140,45 @@ button {
   font-weight: bold;
   transition: background 0.2s, color 0.2s;
   box-shadow: 0 1px 4px rgb(214, 214, 214);
+  margin-top: 0.5rem;
 }
 
 button:hover {
   background: #cfcfcf;
   color: #000000;
+}
+
+/* === RESPONSIVE PARA MÓVIL Y TABLET === */
+@media screen and (max-width: 960px) {
+  .card {
+    flex: 1 1 calc(50% - 2rem); /* 2 por fila */
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .card {
+    flex: 1 1 100%; /* 1 por fila */
+  }
+}
+body {
+  background-color: #000000; /* púrpura muy oscuro */
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.card {
+  background-color: #f3f3f3;
+  color: #222; /* texto oscuro */
+}
+  .search-input {
+  padding: 10px;
+  width: 100%;
+  max-width: 400px;
+  margin: 1rem auto;
+  display: block;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }

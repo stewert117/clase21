@@ -1,44 +1,56 @@
-import jefeImg from '../assets/jefe3.png';
-import espadasImg from '../assets/espadas2.png';
-import coeteImg from '../assets/coete1.png';
-import './Section.css';
-
-const users = [
-  {
-    id: 1,
-    name: 'COHETE🚀',
-    description: '🚀',
-    image: coeteImg
-  },
-  {
-    id: 2,
-    name: 'ESPARTAN',
-    description: '🪖',
-    image: espadasImg
-  },
-  {
-    id: 3,
-    name: '𝐉𝐞𝐟𝐞 𝐌𝐚𝐞𝐬𝐭𝐫𝐨',
-    description: '🐂',
-    image: jefeImg
-  }
-];
-
-const handleClick = (name) => {
-  alert(`Estás contactando a ${name}`);
-};
+import { useState, useEffect } from 'react';
+import { UserCard } from './usecard/UserCard';
+import './section.css';
 
 export const Section = () => {
+  const [count, setCount] = useState(0);
+  const [users, setUsers] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  useEffect(() => {
+    fetch('https://dummyjson.com/users')
+      .then((res) => res.json())
+      .then((data) => {
+        setUsers(data.users);
+      });
+  }, [count]);
+
+  const handleClick = () => {
+    setCount(count + 1);
+  };
+
+  // Aquí se aplica el filtro:
+  const filteredUsers = users.filter((user) =>
+    user.firstName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    user.lastName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    user.email.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    user.address.city.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
-    <div className="cards-container">
-      {users.map(({ id, name, description, image }) => (
-        <div className="card" key={id}>
-          <img className="image" src={image} alt={name} />
-          <h2 className="name">{name}</h2>
-          <p className="description">{description}</p>
-          <button id={id} onClick={() => handleClick(name)}>Contactar</button>
-        </div>
-      ))}
+    <div className="section-container">
+      <h2 className="section-title">{count}</h2>
+      <button onClick={handleClick}>Contador</button>
+
+      <input
+  type="text"
+  className="search-input"
+  placeholder="Buscar usuario por nombre, correo o ciudad..."
+  value={searchTerm}
+  onChange={(e) => setSearchTerm(e.target.value)}
+/>
+
+
+      <section className="cards-container">
+        {filteredUsers.length === 0 ? (
+          <p style={{ color: 'white', textAlign: 'center' }}>No se encontraron usuarios</p>
+        ) : (
+          filteredUsers.map((user) => (
+            <UserCard key={user.id} user={user} />
+          ))
+        )}
+      </section>
     </div>
   );
 };
+ 
